@@ -12,7 +12,7 @@ import java.io.IOException;
  * @Description:
  * @Date: Created in 2018/11/2
  */
-public class WordCountMApper  extends Mapper<LongWritable,Text,Text,IntWritable>{
+public class WordCountMapper  extends Mapper<LongWritable,Text,Text,IntWritable>{
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {

@@ -19,11 +19,13 @@ import java.io.IOException;
 public class Driver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
+        conf.set("mapreduce.framework.name","local");
+        conf.set("fs.defaultFS", "hdfs://mini1:9000/");
 
         Job job = Job.getInstance(conf);
         job.setJarByClass(Driver.class);
 
-        job.setMapperClass(WordCountMApper.class);
+        job.setMapperClass(WordCountMapper.class);
         job.setReducerClass(WordCountReducer.class);
 
         job.setMapOutputKeyClass(Text.class);
