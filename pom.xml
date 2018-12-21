@@ -6,7 +6,11 @@
 
     <groupId>sanfdre</groupId>
     <artifactId>大数据</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>hive</module>
+    </modules>
 
     <dependencies>
         <dependency>
