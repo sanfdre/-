@@ -11,6 +11,7 @@
     <modules>
         <module>hive</module>
         <module>hbase</module>
+        <module>storm</module>
     </modules>
 
     <dependencies>

@@ -154,7 +154,7 @@ public class HBaseMr {
 
 	public static void main(String[] args) throws IOException,
 			ClassNotFoundException, InterruptedException {
-		config.set("df.default.name", "hdfs://master:9000/");//设置hdfs的默认路径
+		config.set("df.default.name", "h dfs://master:9000/");//设置hdfs的默认路径
 		config.set("hadoop.job.ugi", "hadoop,hadoop");//用户名，组
 		config.set("mapred.job.tracker", "master:9001");//设置jobtracker在哪
 		//初始化表
