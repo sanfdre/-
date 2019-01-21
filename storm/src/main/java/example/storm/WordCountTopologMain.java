@@ -1,4 +1,4 @@
-package java.example.storm;
+package example.storm;
 
 //import backtype.storm.Config;
 //import backtype.storm.LocalCluster;
@@ -23,9 +23,9 @@ public class WordCountTopologMain {
 
         //1��׼��һ��TopologyBuilder
         TopologyBuilder topologyBuilder = new TopologyBuilder();
-        topologyBuilder.setSpout("mySpout",new java.example.storm.MySpout(),2);
-        topologyBuilder.setBolt("mybolt1",new java.example.storm.MySplitBolt(),2).shuffleGrouping("mySpout");
-        topologyBuilder.setBolt("mybolt2",new java.example.storm.MyCountBolt(),4).fieldsGrouping("mybolt1", new Fields("word"));
+        topologyBuilder.setSpout("mySpout",new MySpout(),2);
+        topologyBuilder.setBolt("mybolt1",new MySplitBolt(),2).shuffleGrouping("mySpout");
+        topologyBuilder.setBolt("mybolt2",new MyCountBolt(),4).fieldsGrouping("mybolt1", new Fields("word"));
 //        topologyBuilder.setBolt("mybolt2",new MyCountBolt(),4).shuffleGrouping("mybolt1");
         //  config.setNumWorkers(2);
         /**
