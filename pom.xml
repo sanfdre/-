@@ -12,6 +12,7 @@
         <module>hive</module>
         <module>hbase</module>
         <module>storm</module>
+        <module>storm</module>
     </modules>
 
     <dependencies>
