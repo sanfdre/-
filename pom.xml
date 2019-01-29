@@ -11,19 +11,11 @@
     <modules>
         <module>hive</module>
         <module>hbase</module>
-        <module>storm</module>
-        <module>storm</module>
-        <module>storm</module>
         <module>storm-kafka</module>
         <module>mapreduce</module>
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>3.4.5</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -80,8 +72,20 @@
             <version>2.0.0</version>
         </dependency>
 
-
-
-
     </dependencies>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <showWarnings>true</showWarnings>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
 </project>

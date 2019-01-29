@@ -1,21 +1,19 @@
 package kafka.simple;
 
-//import kafka.consumer.Consumer;
-//import kafka.consumer.ConsumerConfig;
-//import kafka.consumer.ConsumerIterator;
-//import kafka.consumer.KafkaStream;
-//import kafka.javaapi.consumer.ConsumerConnector;
-//import kafka.message.MessageAndMetadata;
-//
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.Properties;
-//import java.util.concurrent.ExecutorService;
-//import java.util.concurrent.Executors;
+import kafka.consumer.Consumer;
+import kafka.consumer.ConsumerConfig;
+import kafka.consumer.ConsumerIterator;
+import kafka.consumer.KafkaStream;
+import kafka.javaapi.consumer.ConsumerConnector;
+import kafka.message.MessageAndMetadata;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 
 public class KafkaConsumerSimple implements Runnable {
     public String title;
