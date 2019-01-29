@@ -9,24 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>storm</artifactId>
-
+    <artifactId>storm-kafka</artifactId>
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>org.glassfish</groupId>-->
-            <!--<artifactId>javax.el</artifactId>-->
-            <!--<version>3.0.1-b06</version>-->
-        <!--</dependency>-->
-        <!---->
-        <!---->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.storm/storm-core -->
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
-            <version>1.2.2</version>
-            <scope>provided</scope>
+            <version>0.9.6</version>
         </dependency>
     </dependencies>
+
 
 </project>
