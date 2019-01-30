@@ -19,7 +19,8 @@ public class KafkaProducer {
         Producer producer = new Producer(new ProducerConfig(props));
 
         for (int messageNo = 1;messageNo<10000;messageNo++){
-            producer.send(new KeyedMessage<String,String>(topicName,messageNo+"","appid:"+ UUID.randomUUID().toString()+".sanfdre"));
+            producer.send(new KeyedMessage<String,String>(topicName,
+                    messageNo+"","appid:"+ UUID.randomUUID().toString()+".sanfdre"));
         }
     }
 

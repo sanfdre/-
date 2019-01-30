@@ -37,7 +37,8 @@ public class KafkaConsumer implements Runnable{
 
         Map<String,Integer> topicCountMap = new HashMap<>();
         topicCountMap.put(topic,3);
-        Map<String, List<KafkaStream<byte[], byte[]>>> kafkaStreamMap = consumerConn.createMessageStreams(topicCountMap);
+        Map<String, List<KafkaStream<byte[], byte[]>>> kafkaStreamMap =
+                consumerConn.createMessageStreams(topicCountMap);
         List<KafkaStream<byte[],byte[]>> kafkaStreams = kafkaStreamMap.get(topic);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
