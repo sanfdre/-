@@ -1,25 +1,30 @@
 package kafkaStorm;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.StormSubmitter;
-import backtype.storm.generated.AlreadyAliveException;
-import backtype.storm.generated.InvalidTopologyException;
-import backtype.storm.topology.TopologyBuilder;
-import storm.kafka.KafkaSpout;
-import storm.kafka.SpoutConfig;
-import storm.kafka.ZkHosts;
+
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.AlreadyAliveException;
+import org.apache.storm.generated.AuthorizationException;
+import org.apache.storm.generated.InvalidTopologyException;
+import org.apache.storm.kafka.KafkaSpout;
+import org.apache.storm.kafka.SpoutConfig;
+import org.apache.storm.kafka.ZkHosts;
+import org.apache.storm.topology.TopologyBuilder;
+
+
 
 public class KafkaAndStormTopologyMain {
-    public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException {
-        String zkHosts = "mini1:2181";
+    public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException {
+        String zkHostsStr = "mini1:2181";
+        ZkHosts zkHosts = new ZkHosts(zkHostsStr);
         String topic = "test";
         String zkRoot = "/myKafka";
+
+        SpoutConfig spoutConfig = new SpoutConfig(zkHosts,topic,zkRoot,"kafkaSpout");
+        KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig);
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("kafkaSpout", new KafkaSpout(
-                new SpoutConfig(new ZkHosts(zkHosts), topic,
-                        zkRoot, "kafkaSpout")),
-                1);
+        builder.setSpout("kafkaSpout",kafkaSpout,1);
         builder.setBolt("kafkaBolt",new KafkaBolt(),1).shuffleGrouping("kafkaSpout");
 
         Config config = new Config();
