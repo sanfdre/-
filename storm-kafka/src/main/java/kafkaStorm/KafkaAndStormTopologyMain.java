@@ -18,7 +18,7 @@ public class KafkaAndStormTopologyMain {
     public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException {
         String zkHostsStr = "mini1:2181";
         ZkHosts zkHosts = new ZkHosts(zkHostsStr);
-        String topic = "test";
+        String topic = "orderMq";
         String zkRoot = "/myKafka";
 
         SpoutConfig spoutConfig = new SpoutConfig(zkHosts,topic,zkRoot,"kafkaSpout");
